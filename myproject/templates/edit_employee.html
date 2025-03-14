@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+<div class="containers">
+    <div class="header">
+        <h2>Update Employee</h2>
+        <a href="{% url 'employee_detail' %}" class="btn btn-primary">Back</a>
+    </div>
+
+    <form method="POST" class="form-container">
+        {% csrf_token %}
+        
+        <label>First Name:</label>
+        <input type="text" name="first_name" value="{{ employee.first_name }}" required>
+
+        <label>Last Name:</label>
+        <input type="text" name="last_name" value="{{ employee.last_name }}" required>
+
+        <label>Username:</label>
+        <input type="text" name="username" value="{{ employee.username }}" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ employee.email }}" required>
+
+        <label>Department:</label>
+        <select name="department">
+            {% for dept in departments %}
+                <option value="{{ dept.id }}" {% if employee.dept.id == dept.id %}selected{% endif %}>{{ dept.dept_name }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Role:</label>
+        <select name="role">
+            {% for role in roles %}
+                <option value="{{ role.id }}" {% if employee.role.id == role.id %}selected{% endif %}>{{ role.role_name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+
+<style>
+    .containers {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .form-container label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    .form-container input, .form-container select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .btn-primary {
+        background: #007bff;
+        color: white;
+        padding: 8px 12px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 15px;
+    }
+    .btn-primary:hover {
+        background: #0056b3;
+    }
+</style>
+{% endblock %}

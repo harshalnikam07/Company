@@ -1,0 +1,288 @@
+/* Elegant Dark Purple & Soft Lavender Theme */
+:root {
+    --primary-color: #3B1E54;  /* Deep Purple */
+    --secondary-color: #9B7EBD; /* Soft Lavender */
+    --accent-color: #D4BEE4;   /* Light Purple */
+    --background-color: #EEEEEE; /* Light Gray */
+    --text-color: #1E1E1E; /* Dark Gray */
+    --white: #FFFFFF;
+}
+
+/* ✅ General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ✅ Fix Navbar */
+.navbar {
+    background: var(--primary-color) !important;
+    padding: 15px 25px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* ✅ Navbar Brand */
+.navbar-brand {
+    color: var(--white) !important;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* ✅ Navbar Items */
+.navbar-nav {
+    list-style: none;
+    /* padding: 0; */
+    display: flex;
+    /* gap: 10px; */
+    /* width: 100%; */
+}
+
+/* ✅ Adjust menu spacing */
+.navbar-collapse {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar-nav .nav-item {
+    margin-left: 50px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--white) !important;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* ✅ Hover Effect */
+.navbar-nav .nav-link:hover {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+/* ✅ Dropdown Menu */
+.dropdown-menu {
+    background: var(--primary-color);
+    border: none;
+    min-width: 180px;
+}
+
+.dropdown-item {
+    color: white;
+    /* font-weight: bold; */
+    /* transition: 0.3s; */
+    padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+    background: var(--white);
+    color: var(--primary-color);
+}
+
+/* ✅ Fix Sidebar */
+.wrapper {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    margin-top: 70px; /* Navbar खाली space */
+    width: 250px;
+    background: var(--primary-color);
+    padding: 25px;
+    height: 100vh; /* Full height sidebar */
+    position: fixed;
+    left: 0;
+    top: 0; /* Navbar मुळे fixed sidebar */
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: var(--white);
+    text-decoration: none;
+    display: block;
+    padding: 12px;
+    font-weight: bold;
+    background: var(--secondary-color);
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+/* ✅ Main Content */
+.main-content {
+    flex: 1;
+    margin-left: 260px; /* Sidebar width + gap */
+    padding: 30px;
+    margin-top: 80px; /* Navbar space */
+    background-color: var(--background-color);
+}
+
+/* ✅ Dashboard Styling */
+.dashboard {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.card {
+    /* background: var(--secondary-color); */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 200px;
+    color: black;
+    transition: 0.3s;
+}
+
+
+/* ✅ Footer Styling - Fixed below sidebar */
+.footer {
+    /* margin-top: 50%; */
+    position: relative;
+    background: #3B1E54;;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 250px); /* Sidebar width adjustment */
+    left: 250px; /* Sidebar width adjustment */
+}
+
+/* ✅ Footer Links */
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffcc00;
+}
+
+/* ✅ Social Media Icons */
+.footer-links i {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+/* ✅ Copyright */
+.copyright {
+    font-size: 14px;
+}
+
+
+/* ✅ Responsive Design (For Mobiles and Tablets) */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 100px;
+    }
+
+    .sidebar ul li a {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .main-content {
+        margin-left: 110px;
+    }
+
+    .footer {
+        width: calc(100% - 110px);
+        left: 110px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+        padding: 15px;
+    }
+
+    .sidebar ul li a {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .main-content {
+        margin-left: 90px;
+        padding: 15px;
+    }
+
+    .footer {
+        width: calc(100% - 90px);
+        left: 90px;
+        padding: 15px;
+    }
+
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .main-content {
+        margin-left: 75px;
+    }
+
+    .footer {
+        width: calc(100% - 75px);
+        left: 75px;
+    }
+
+    .footer-links a {
+        font-size: 14px;
+        margin: 0 10px;
+    }
+}

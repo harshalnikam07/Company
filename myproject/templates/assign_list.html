@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+      
+{% block 'main' %}
+<div class="container mt-4">
+    <h2>Task Assignments</h2>
+    <table border="1">
+        <tr>
+            <th>Task</th>
+            <th>Assigned To</th>
+            <th>Assigned By</th>
+            <th>Status</th>
+            <th>Assigned Date</th>
+            <th>Completed At</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.task.task_title }}</td>
+            <td>{{ task.employee.first_name }} {{ task.employee.last_name }}</td>
+            <td>{{ task.assigned_by.first_name }} {{ task.assigned_by.last_name }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.assigned_date }}</td>
+            <td>{{ task.completed_at|default:"-" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

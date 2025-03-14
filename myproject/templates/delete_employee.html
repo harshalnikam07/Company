@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+<div class="delete-container">
+    <div class="header">
+        <h2>Delete Employee</h2>
+        <a href="/employee_detail" class="btn btn-primary">Back</a>
+    </div>  
+
+    <p class="delete-message">Are you sure you want to delete <strong>{{ employee.first_name }} {{ employee.last_name }}</strong>?</p>
+    
+    <form method="POST" class="delete-form">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'employee_detail' %}" class="btn btn-warning">Cancel</a>
+    </form>
+</div>
+
+<style>
+    /* Centering and styling the delete container */
+    .delete-container {
+        max-width: 450px;
+        margin-top: 100px;
+        margin-left: 30%;
+        /* margin: 50px auto; */
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* Header with Back button alignment */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    /* Spacing and font size for delete message */
+    .delete-message {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Styling the form buttons */
+    .delete-form {
+        display: flex;
+        justify-content: center;
+        gap: 15px; /* Adds space between buttons */
+    }
+
+    .btn-primary {
+        background: #007bff;
+        color: white;
+        padding: 8px 14px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .btn-primary:hover {
+        background: #0056b3;
+    }
+
+    .btn-danger {
+        background: #dc3545;
+        color: white;
+        padding: 8px 14px;
+        text-decoration: none;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-danger:hover {
+        background: #c82333;
+    }
+
+    .btn-warning {
+        background: #ffc107;
+        color: black;
+        padding: 8px 14px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .btn-warning:hover {
+        background: #e0a800;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,32 @@
+/* body {
+    display: flex;
+    min-height: 100vh;
+}
+.sidebar {
+    width: 250px;
+    background: #343a40;
+    color: white;
+    padding: 20px;
+}
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #495057;
+}
+.sidebar a:hover {
+    background: #6c757d;
+}
+.content {
+    flex: 1;
+    padding: 20px;
+}
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */

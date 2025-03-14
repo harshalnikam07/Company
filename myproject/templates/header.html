@@ -1,0 +1,112 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRM Dashboard</title>
+    
+    <link rel="stylesheet" href="{% static 'home.css' %}" />
+    <link rel="stylesheet" href="{% static 'employee.css' %}" /> -->
+    <!-- <link rel="stylesheet" href="{% static 'department.css' %}" /> -->
+<!-- </head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <li><a href="/home" style="font-weight:900; color: white;">HRM System </a></li>
+            <ul class="nav-links">
+                <li><a href="/home">Home</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Employee</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            </ul>
+        </div>
+    </nav> -->
+
+
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>InfoHuman</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'home.css' %}" />
+        <link rel="stylesheet" href="{% static 'employee.css' %}" />
+        <link rel="stylesheet" href="{% static 'department.css' %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet"
+        />
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img src="{% static 'images/HRM logo.png' %}" alt="Logo" width="44" height="44" style="margin-left: 20px;">
+            </a>
+            <a class="navbar-brand" href="/admin_dashboard" style="color: white; font-weight: 700;">InfoHuman</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+              <ul class="navbar-nav">
+                
+                {% if user.is_authenticated %}
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <li class="nav-item" style="margin-right: 40px;">
+                  <a class="nav-link active">Hi,{{ user.first_name }}</a>
+                </li>
+                
+                {% else %}
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                    Login
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/employee_login">Employee Login</a></li>
+                    <li><a class="dropdown-item" href="/admin_login">Admin Login</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/employee_register">Register</a>
+                </li>
+                
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+    
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+      </body>
+    </html>
+    
+    
+    
+        
+    
+    

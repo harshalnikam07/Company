@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+    <main>
+        <section class="dashboard">
+            <h2>HRM Dashboard</h2>
+            <div class="stats-container">
+                <div class="card" >Total Employees: 20</div>
+                <div class="card">Job Openings: 4</div>
+                <div class="card">Pending Interviews: 6</div>
+                <div class="card">Upcoming Appraisals: 3</div>
+            </div>
+        </section>
+
+        <section class="hrm-info">
+            <h3>📌 Key Features of HRM System</h3>
+            <ul>
+                <li>✅ Employee Management – Maintain and update employee records.</li>
+                <li>✅ Recruitment – Manage job postings and hiring processes.</li>
+                <li>✅ Payroll Processing – Automate salary payments and deductions.</li>
+                <li>✅ Leave & Attendance – Approve leave requests and track attendance.</li>
+                <li>✅ Performance Appraisals – Conduct evaluations and reviews.</li>
+                <li>✅ Training & Development – Assign employee training sessions.</li>
+            </ul>
+        </section>
+<!-- 
+        <section class="hrm-guidelines">
+            <h3>📜 HRM Policies & Guidelines</h3>
+            <p><strong>Employee Code of Conduct:</strong> Follow workplace behavior policies.</p>
+            <p><strong>Leave Policy:</strong> Guidelines for vacations, sick leaves, and unpaid leaves.</p>
+            <p><strong>Workplace Safety:</strong> Compliance with health and safety regulations.</p>
+            <p><strong>Payroll & Benefits:</strong> Salary structure, bonuses, and allowances.</p>
+        </section> -->
+    </main>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard {
+            text-align: center;
+            padding: 20px;
+        }
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        /* .card {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            min-width: 200px;
+            text-align: center;
+        } */
+        .hrm-info, .hrm-guidelines {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            width: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        /* ul li {
+            background: #e9ecef;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        } */
+    </style>
+{% endblock 'main' %}

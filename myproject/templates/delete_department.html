@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+    <div class="container">
+        <div class="delete-container">
+            <h2>Delete Department</h2>
+            <p>Are you sure you want to delete the department: <strong>{{ department.dept_name }}</strong>?</p>
+            
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                <a href="#" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .delete-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+    </style>
+{% endblock 'main' %}

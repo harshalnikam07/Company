@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">Create Task</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><label>Title:</label></td>
+                    <td><input type="text" name="task_title" required></td>
+                </tr>
+                <tr>
+                    <td><label>Description:</label></td>
+                    <td><textarea name="task_description" required></textarea></td>
+                </tr>
+                <tr>
+                    <td><label>Priority:</label></td>
+                    <td>
+                        <select name="task_priority">
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Start Date:</label></td>
+                    <td><input type="date" name="start_date" required></td>
+                </tr>
+                <tr>
+                    <td><label>End Date:</label></td>
+                    <td><input type="date" name="end_date" required></td>
+                </tr>
+                <tr>
+                    <td><label>Task Type:</label></td>
+                    <td>
+                        <select name="task_type">
+                            <option value="Individual">Individual</option>
+                            <option value="Team">Team</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="center-button">
+                        <button type="submit" class="btn btn-primary">Save Task</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <style>
+        /* Table Styling */
+        table {
+            margin-top: 90px;
+            margin-left: 20%;
+            margin-bottom: 10px;
+            width: 60%;
+            /* margin: auto; */
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            text-align: center;
+            padding: 12px;
+            background: rgb(51, 51, 69);
+            color: white;
+            font-size: 20px;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        
+
+        .center-button {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+{% endblock %}

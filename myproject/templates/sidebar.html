@@ -1,0 +1,36 @@
+<!-- 
+    <aside class="sidebar">
+        <ul>
+            <li><a href="/home">Dashboard</a></li>
+            <li><a href="/departments">Department</a></li>
+            <li><a href="/employee_detail">Employee</a></li>
+            <li><a href="/roll_list">Role</a></li>
+            <li><a href="/tasks">Task</a></li>
+            <li><a href="/assign-task">Assign Task</a></li>
+            <li><a href="/leave-history">Leave</a></li>
+            <li><a href="#">Review</a></li>
+        </ul>
+    </aside> -->
+
+    <aside class="sidebar">
+        <ul>
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_staff %}
+                    <!-- ✅ Admin Sidebar -->
+                    <li><a href="/home">Dashboard</a></li>
+                    <li><a href="/departments">Department</a></li>
+                    <li><a href="/employee_detail">Employee</a></li>
+                    <li><a href="/roll_list">Role</a></li>
+                    <li><a href="/assign-task">Assign Task</a></li>
+                {% else %}
+                    <!-- ✅ Employee Sidebar -->
+                    <li><a href="/employee-dashboard">Dashboard</a></li>
+                {% endif %}
+                <li><a href="/tasks">Task</a></li>
+                <li><a href="/leave-history">Leave</a></li>
+            {% endif %}
+        </ul>
+    </aside>
+    
+    
+    

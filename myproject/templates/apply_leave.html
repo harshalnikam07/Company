@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<div class="cont">
+    <h2>Apply for Leave</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="leave_type">Leave Type:</label>
+        <select name="leave_type" required>
+            <option value="SL">Sick Leave</option>
+            <option value="CL">Casual Leave</option>
+            <option value="PL">Paid Leave</option>
+            <option value="LWP">Leave Without Pay</option>
+        </select>
+
+        <label for="reason">Reason:</label>
+        <textarea name="reason" required></textarea>
+
+        <label for="start_date">Start Date:</label>
+        <input type="date" name="start_date" required>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" name="end_date" required>
+
+        <button type="submit" class="btn btn-primary no-hover">Submit</button>
+    </form>
+</div>
+
+<style>
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.cont {
+    margin-top: 70px;
+    margin-left: 25%;
+    background: #ffffff;
+    padding: 30px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Select and Input Fields */
+select, textarea, input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Textarea */
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button, .btn-primary {
+    background: #007bff !important;  
+    color: white !important;  
+    cursor: default !important;  
+    box-shadow: none !important;  
+    border: none !important;  
+}
+
+button:hover, .btn-primary:hover {
+    background: #007bff !important;  /* Force Keep Original Color */
+    color: white !important;  
+    cursor: default !important;  
+    box-shadow: none !important;  
+    border: none !important;  
+}
+
+</style>
+
+{% endblock %}

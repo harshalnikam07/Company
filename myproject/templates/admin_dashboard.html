@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+    <main>
+        <section class="dashboard">
+            <h2>HRM Dashboard</h2>
+        </section>
+
+        <section class="hrm-info">
+            <h3>📌 Key Features of HRM System</h3>
+            <ul>
+                <li>✅ Employee Management – Maintain and update employee records.</li>
+                <li>✅ Recruitment – Manage job postings and hiring processes.</li>
+                <li>✅ Leave & Attendance – Approve leave requests and track attendance.</li>
+            </ul>
+        </section>
+
+        <section class="hrm-guidelines">
+            <h3>📜 HRM Policies & Guidelines</h3>
+            <p><strong>Employee Code of Conduct:</strong> Follow workplace behavior policies.</p>
+            <p><strong>Leave Policy:</strong> Guidelines for vacations, sick leaves, and unpaid leaves.</p>
+            <p><strong>Workplace Safety:</strong> Compliance with health and safety regulations.</p>
+            <p><strong>Payroll & Benefits:</strong> Salary structure, bonuses, and allowances.</p>
+        </section>
+    </main>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard {
+            text-align: center;
+            padding: 20px;
+        }
+        .hrm-info, .hrm-guidelines {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            width: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* 🟢 Responsive Design */
+        @media (max-width: 768px) {
+            .hrm-info, .hrm-guidelines {
+                width: 90%; /* मोबाइल साठी अधिक चांगले */
+                padding: 15px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+            ul li {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard {
+                padding: 10px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            .hrm-info, .hrm-guidelines {
+                width: 95%; 
+            }
+        }
+    </style>
+{% endblock 'main' %}

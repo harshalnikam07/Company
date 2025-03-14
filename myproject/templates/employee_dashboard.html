@@ -1,0 +1,280 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+        <section class="employee-actions">
+            <h3>🛠 Quick Actions</h3>
+            <div class="action-buttons">
+                <a href="#" class="btn btn-primary">Apply for Leave</a>
+                <a href="#" class="btn btn-success">View Attendance</a>
+                <a href="#" class="btn btn-warning">Update Profile</a>
+            </div>
+        </section>
+
+        <section class="announcements">
+            <h3>📢 Announcements</h3>
+            <ul>
+                <li>🎉 Company Annual Meet on 25th March.</li>
+                <li>⚠️ Submit tax documents before 31st March.</li>
+                <li>🎓 Training session on 'Leadership Skills' on 20th March.</li>
+            </ul>
+        </section>
+    </main>
+
+    <style>
+    /* Elegant Dark Purple & Soft Lavender Theme */
+:root {
+    --primary-color: #3B1E54;  /* Deep Purple */
+    --secondary-color: #9B7EBD; /* Soft Lavender */
+    --accent-color: #D4BEE4;   /* Light Purple */
+    --background-color: #EEEEEE; /* Light Gray */
+    --text-color: #1E1E1E; /* Dark Gray */
+    --white: #FFFFFF;
+}
+
+/* ✅ General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ✅ Fix Navbar */
+.navbar {
+    background: var(--primary-color) !important;
+    padding: 15px 25px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* ✅ Navbar Brand */
+.navbar-brand {
+    color: var(--white) !important;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* ✅ Navbar Items */
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+/* ✅ Adjust menu spacing */
+.navbar-collapse {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--white) !important;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* ✅ Hover Effect */
+.navbar-nav .nav-link:hover {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+/* ✅ Dropdown Menu */
+.dropdown-menu {
+    background: var(--primary-color);
+    border: none;
+    min-width: 180px;
+}
+
+.dropdown-item {
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* ✅ Fix Sidebar */
+.wrapper {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    margin-top: 70px; /* Navbar खाली space */
+    width: 250px;
+    background: var(--primary-color);
+    padding: 25px;
+    height: 100vh; /* Full height sidebar */
+    position: fixed;
+    left: 0;
+    top: 0; /* Navbar मुळे fixed sidebar */
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: var(--white);
+    text-decoration: none;
+    display: block;
+    padding: 12px;
+    font-weight: bold;
+    background: var(--secondary-color);
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+}
+
+/* ✅ Main Content */
+/* ✅ Quick Actions Section */
+.employee-actions {
+    text-align: center;
+    margin-top: 100px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.employee-actions h3 {
+    color: #3B1E54;
+    margin-bottom: 15px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Small screens साठी */
+}
+
+.action-buttons a {
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #007BFF;
+    color: white;
+}
+
+.btn-success {
+    background: #28A745;
+    color: white;
+}
+
+.btn-warning {
+    background: #FFC107;
+    color: black;
+}
+
+.action-buttons a:hover {
+    opacity: 0.8;
+}
+
+/* ✅ Announcements Section */
+.announcements {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: left;
+}
+
+.announcements h3 {
+    color: #3B1E54;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.announcements ul {
+    list-style: none;
+    padding: 0;
+}
+
+.announcements ul li {
+    background: #e9ecef;
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 6px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.announcements ul li::before {
+    content: "📌";
+    font-size: 18px;
+}
+
+
+
+
+.footer-custom {
+    position: relative;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+
+.footer-custom .social-icons a {
+    color: var(--white);
+    margin: 0 10px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.footer-custom .social-icons a:hover {
+    color: var(--accent-color);
+}
+</style>
+
+{% endblock 'main' %}

@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<div class="leavebutton">
+</div>
+<div class="leave-container mt-6">
+    <a href="/apply-leave" class="btn-add" >+ Add Leave</a>
+
+    <h2 class="leave-heading">Leave History</h2>
+    <table class="leave-table">
+        <thead>
+            <tr>
+                <th>Leave Type</th>
+                <th>Reason</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total Days</th>
+                <th>Status</th>
+                <th>Actions</th>  <!-- New Column for Edit & Delete -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for leave in leaves %}
+            <tr>
+                <td>{{ leave.leave_type }}</td>
+                <td>{{ leave.reason }}</td>
+                <td>{{ leave.start_date }}</td>
+                <td>{{ leave.end_date }}</td>
+                <td>{{ leave.total_days }}</td>
+                <td>
+                    <span class="leave-status 
+                        {% if leave.status == 'Approved' %} status-approved 
+                        {% elif leave.status == 'Pending' %} status-pending 
+                        {% else %} status-rejected 
+                        {% endif %}">
+                        {{ leave.status }}
+                    </span>
+                </td>
+                <td>
+                    <a href="#" class="btn-edit">Edit</a>
+                    <a href="#" class="btn-delete" onclick="return confirm('Are you sure you want to delete this leave record?');">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<style>
+
+
+.btn-add{
+    color: white;
+    margin-top: 20px;
+    margin-left: 80%;
+}
+
+.btn-add {
+    background-color: rgb(60, 60, 225);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+
+    /* Container Styling */
+    .leave-container {
+        max-width: 80%;
+        margin: 50px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* Heading Styling */
+    .leave-heading {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Table Styling */
+    .leave-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .leave-table th, .leave-table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .leave-table th {
+        background: #007bff;
+        color: white;
+    }
+
+    /* Status Badge Styling */
+    .leave-status {
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .status-approved {
+        background: #28a745;
+        color: white;
+    }
+
+    .status-pending {
+        background: #ffc107;
+        color: black;
+    }
+
+    .status-rejected {
+        background: #dc3545;
+        color: white;
+    }
+
+    /* Button Styling */
+    .btn-edit, .btn-delete {
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 3px;
+    }
+
+    .btn-edit {
+        background: #ffc107;
+        color: black;
+    }
+
+    .btn-delete {
+        background: #dc3545;
+        color: white;
+    }
+
+    .btn-edit:hover {
+        background: #e0a800;
+    }
+
+    .btn-delete:hover {
+        background: #c82333;
+    }
+</style>
+{% endblock %}

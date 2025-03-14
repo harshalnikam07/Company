@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<div class="leave-container mt-4">
+    <h2 class="leave-heading">Edit Leave</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-sections">
+            <!-- ✅ Left Section (Leave Details) -->
+            <div class="form-section">
+                <label class="form-label">Leave Type:</label>
+                <input type="text" name="leave_type" value="{{ leave.leave_type }}" required class="form-input">
+
+                <label class="form-label">Reason:</label>
+                <input type="text" name="reason" value="{{ leave.reason }}" required class="form-input">
+
+                <label class="form-label">Start Date:</label>
+                <input type="date" name="start_date" value="{{ leave.start_date }}" required class="form-input">
+
+                <label class="form-label">End Date:</label>
+                <input type="date" name="end_date" value="{{ leave.end_date }}" required class="form-input">
+            </div>
+
+            <!-- ✅ Right Section (Leave Status) -->
+            <div class="form-section">
+                <label class="form-label">Total Days:</label>
+                <input type="number" name="total_days" value="{{ leave.total_days }}" required class="form-input">
+
+                <label class="form-label">Status:</label>
+                <select name="status" class="form-input">
+                    <option value="Approved" {% if leave.status == "Approved" %}selected{% endif %}>Approved</option>
+                    <option value="Pending" {% if leave.status == "Pending" %}selected{% endif %}>Pending</option>
+                    <option value="Rejected" {% if leave.status == "Rejected" %}selected{% endif %}>Rejected</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button type="submit" class="btn-save">Update Leave</button>
+            <a href="/leave-history" class="btn-cancel">Cancel</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    /* ✅ Main Container */
+    .leave-container {
+        max-width: 60%;
+        margin: 50px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* ✅ Heading */
+    .leave-heading {
+        margin-top: 70px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* ✅ Form Sections - Two Column Layout */
+    .form-sections {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .form-section {
+        width: 48%;
+        text-align: left;
+    }
+
+    /* ✅ Form Inputs */
+    .form-label {
+        display: block;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    /* ✅ Buttons */
+    .btn-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .btn-save, .btn-cancel {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .btn-save {
+        background: #28a745;
+        color: white;
+    }
+
+    .btn-save:hover {
+        background: #218838;
+    }
+
+    .btn-cancel {
+        background: #dc3545;
+        color: white;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .btn-cancel:hover {
+        background: #c82333;
+    }
+</style>
+{% endblock %}

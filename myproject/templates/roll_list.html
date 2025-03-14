@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+    <div class="content">
+        <div class="table-container">
+            <div class="header">
+                <h2>Role Details</h2>
+                <a href="/addroll" class="btn btn-primary">+ Add Role</a>
+            </div>
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Role Name</th>
+                        <th>Description</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for role in roles %}
+                    <tr>
+                        <td>{{ role.role_id }}</td>
+                        <td>{{ role.role_name }}</td>
+                        <td>{{ role.description }}</td>
+                        <td>{{ role.created_at|date:"Y-m-d H:i" }}</td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center">No Roles Found</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <style>
+        h2{
+            margin-left: 500px;
+        }
+        .table-container {
+            margin-top: 100px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            background: #007bff;
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+        .btn-warning {
+            background: #ffc107;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn-warning:hover {
+            background: #e0a800;
+        }
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn-danger:hover {
+            background: #c82333;
+        }
+    </style>
+{% endblock %}
