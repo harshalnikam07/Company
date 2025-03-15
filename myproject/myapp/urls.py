@@ -7,6 +7,7 @@ from .views import admin_dashboard, employee_dashboard
 
 
 urlpatterns = [
+    path("", views.home, name="home"),
     path('employee_login/', views.employee_login, name='employee_login'),
     path('admin_login/', views.admin_login, name='admin_login'),
     path('employee-dashboard/', employee_dashboard, name='employee-dashboard'),
